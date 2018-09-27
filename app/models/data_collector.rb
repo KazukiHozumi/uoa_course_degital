@@ -15,7 +15,9 @@ class DataCollector
     doc = Nokogiri::HTML.parse(html, nil, 'UTF-8')
     doc.xpath('//div[@class="box"]').each do |box|
       category = Category.new(box.css('td.daikbn').inner_text.strip)
-      p chukbn = box.xpath('//td[@class="chukbn"]')[0].inner_text.strip
+      box.xpath('//td[@class="chukbn"]').each do |subcategory|
+        p subcategory.inner_text.strip
+      end
       categorys << category
     end
 
