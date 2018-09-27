@@ -11,6 +11,9 @@ class CourseController < ApplicationController
   end
 
   def detail
+
+    @teacher = Teacher.all
+    @course = Course.all
   end
 
 end
