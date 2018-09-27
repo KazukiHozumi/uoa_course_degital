@@ -12,7 +12,7 @@ class DataCollectService
 
     html = open(syllabus_url, &:read)
 
-    categorys = []
+    categories = []
 
     doc = Nokogiri::HTML.parse(html, nil, 'UTF-8')
     doc.xpath('//div[@class="box"]').each do |box|
@@ -30,12 +30,29 @@ class DataCollectService
           count += 1
           category.subcategories << Subcategory.new(category.category_name, category)
         end
-        course_code, course_name = table.xpath('.//td[@class="kamoku"]/a').text.scan(/([^ ]+) (.+$)/)[0]
+        kamoku = table.xpath('.//td[@class="kamoku"]/a')
+        course_code, course_name = kamoku.text.scan(/([^ ]+) (.+$)/)[0]
         category.subcategories[count].course_list << Course.new(course_code, course_name)
+        relative_detail_url = kamoku[0].attributes['href'].value
+        category.subcategories[count].detail_url = 'http://web-ext.u-aizu.ac.jp/official/curriculum/syllabus/' + relative_detail_url
       end
-      categorys << category
+      categories << category
     end
+
+    categories.each do |category|
+      category.subcategories.each do |subcategory|
+        html = open(subcategory.detail_url, &:read)
+        doc = Nokogiri::HTML.parse(html, nil, 'UTF-8')
+        subcategory.course_list.each do |course|
+          xpath_str = "//div[@id=\"#{course.course_code}\"]//table[@class=\"syllabus-normal\"]"
+          doc.xpath(xpath_str)[0].children.each do |tr|
+            if tr.xpath('./th').text.include? '担当教員名'
+              course.teachers = tr.xpath('./td').text.split(',').map(&:strip)
+            end
+          end
+        end
+      end
+    end
+    categories
   end
 end
-
-DataCollectService.new.get_courses
