@@ -1,2 +1,0 @@
-class CourseTeacher < ApplicationRecord
-end
