@@ -4,12 +4,15 @@
 
 
 <style type="text/css">
+
 #gradation {
 background: -moz-linear-gradient(top, #e9f9e3, #FFF);
 background: -webkit-linear-gradient(top, #e9f9e3, #FFF);
 background: linear-gradient(to bottom, #e9f9e3, #FFF);
 /*グラデーション以外は省略*/
 }
+
+
 </style>
 
 　<title>リスト</title>
@@ -32,8 +35,10 @@ background: linear-gradient(to bottom, #e9f9e3, #FFF);
 
 
 <ul class="list-group">
-<% @teacher.each do |teacher| %>
-<% @course.each do |course| %>
+
+
+<% @courseteacher.each do |courseteacher| %>
+
 
             <div class="input-group mb-3">
               <div class="input-group-text">
@@ -41,14 +46,16 @@ background: linear-gradient(to bottom, #e9f9e3, #FFF);
               </div>
              <!-- <div class="alert alert-success" role="alert"> -->
               <p type="text" class="form-control" aria-label="Text input with radio button">
-                 <em><%= course.course_code %></em>　<em><%= course.course_name %></em>　<em><%= teacher.teacher_name %></em>
+                <% course = @course.find(courseteacher.course_id)%>
+                <% teacher = @teacher.find(courseteacher.teacher_id)%>
+                 <em><%= course.course_code %></em>　<em><%= course.course_name %></em>　<em><%=teacher.teacher_name %></em>
            <!-- </div> -->
               </p>
             </div>
 
 
 <% end %>
-<% end %>
+
 
 </ul>
 

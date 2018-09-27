@@ -6,6 +6,8 @@ class CourseController < ApplicationController
 
     @teacher = Teacher.all
     @course = Course.all
+    @courseteacher = CourseTeacher.all
+    @subcategory = Subcategory.all
 
 
   end
