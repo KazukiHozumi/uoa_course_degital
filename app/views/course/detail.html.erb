@@ -2,37 +2,63 @@
 <html>
 <head>
 
-<title>detail</title>
-<meta charset="UTF-8">
+  <style type="text/css">
 
-</head>
+  #gradation {
+  background: -moz-linear-gradient(top, #f4dcb5, #FFF);
+  background: -webkit-linear-gradient(top, #f4dcb5, #FFF);
+  background: linear-gradient(to bottom, #f4dcb5, #FFF);
+  /*グラデーション以外は省略*/
+  }
 
-<body>
 
-<center>
+  </style>
 
-<div>
-<h2>確認</h2>
-</div>
 
+
+
+　<title>detail</title>
+　<meta charset="UTF-8">
+
+　</head>
+
+<div id="gradation">
+
+　<body>
+
+　<center>
+
+　<div>
+　<h2>確認</h2>
+　</div>
 
 
 
 <ul class="list-group">
+<% @teacher.each do |teacher| %>
+<% @course.each do |course| %>
 
-<a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
-<a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
+            <div class="input-group mb-3">
+             <!-- <div class="alert alert-success" role="alert"> -->
+              <p type="text" class="form-control" aria-label="Text input with radio button">
+                 <em><%= course.course_code %></em>　<em><%= course.course_name %></em>　<em><%= teacher.teacher_name %></em>
+           <!-- </div> -->
+              </p>
+            </div>
+
+
+<% end %>
+<% end %>
 
 </ul>
+
+<br><button type="button" class="btn btn-outline-danger">印刷</button></br>
+
 </center>
 
-
-<br><button type="button" class="btn btn-outline-success">印刷</button></br>
-
+<%= image_tag('forest2') %>
 </body>
 
-</html>
+</div>
 
+</html>

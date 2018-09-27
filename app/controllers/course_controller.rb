@@ -3,9 +3,17 @@ class CourseController < ApplicationController
   end
 
   def list
+
+    @teacher = Teacher.all
+    @course = Course.all
+
+
   end
 
   def detail
+
+    @teacher = Teacher.all
+    @course = Course.all
   end
-        
+
 end
