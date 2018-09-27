@@ -1,9 +1,9 @@
 require 'nokogiri'
 require 'open-uri'
 
-require '../../lib/category_dto'
-require '../../lib/course_dto'
-require '../../lib/subcategory_dto'
+require_relative '' '../../lib/category_dto'
+require_relative '' '../../lib/course_dto'
+require_relative '' '../../lib/subcategory_dto'
 
 class DataCollector
   def get_courses
@@ -23,16 +23,16 @@ class DataCollector
         next if table.nil?
         if table.attributes['class'].value == 'chu-inner'
           count += 1
-          category.subcategories << Subcategory.new(table.xpath('.//td[@class="chukbn"]').text.strip, category)
+          category.subcategories << SubcategoryDTO.new(table.xpath('.//td[@class="chukbn"]').text.strip, category)
           next
         end
         if category.subcategories.empty?
           count += 1
-          category.subcategories << Subcategory.new(category.category_name, category)
+          category.subcategories << SubcategoryDTO.new(category.category_name, category)
         end
         kamoku = table.xpath('.//td[@class="kamoku"]/a')
         course_code, course_name = kamoku.text.scan(/([^ ]+) (.+$)/)[0]
-        category.subcategories[count].course_list << Course.new(course_code, course_name)
+        category.subcategories[count].course_list << CourseDTO.new(course_code, course_name)
         relative_detail_url = kamoku[0].attributes['href'].value
         category.subcategories[count].detail_url = 'http://web-ext.u-aizu.ac.jp/official/curriculum/syllabus/' + relative_detail_url
       end

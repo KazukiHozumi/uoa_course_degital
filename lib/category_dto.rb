@@ -1,10 +1,7 @@
 class CategoryDTO
-  def initialize(code, name)
-    @course_code = code
-    @course_name = name
-    @teachers = []
-    @subcourse_id = nil
-  end
-
-  attr_accessor :course_code, :course_name, :teachers
+    def initialize(name)
+      @category_name = name
+      @subcategories = []
+    end
+    attr_accessor :category_name, :subcategories
 end
