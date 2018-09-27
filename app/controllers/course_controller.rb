@@ -16,4 +16,7 @@ class CourseController < ApplicationController
     @course = Course.all
   end
 
+  def test
+  end
+
 end
