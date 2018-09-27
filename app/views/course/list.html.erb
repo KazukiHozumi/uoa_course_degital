@@ -9,11 +9,12 @@
 
 <body>
 
-<center>
 
+<center>
 <div>
 <h2>履修中の科目</h2>
 </div>
+
 
 
 
@@ -22,27 +23,26 @@
 <% @teacher.each do |teacher| %>
 <% @course.each do |course| %>
 
-
-  <div class="input-group-prepend">
-    <div class="input-group-text">
-      <input type="radio" aria-label="Radio button for following text input">
-         <a href="#" class="list-group-item list-group-item-action list-group-item-success"><em><%= course.course_code %></em>　<em><%= course.course_name %></em>　<em><%= teacher.teacher_name %></em></a>
-       </div>
-         </div>
-
-
+            <div class="input-group mb-3">
+              <div class="input-group-text">
+                <input type="checkbox" aria-label="Checkbox for following text input">
+              </div>
+             <!-- <div class="alert alert-success" role="alert"> -->
+              <p type="text" class="form-control" aria-label="Text input with radio button">
+                 <em><%= course.course_code %></em>　<em><%= course.course_name %></em>　<em><%= teacher.teacher_name %></em>
+           <!-- </div> -->
+              </p>
+            </div>
 
 
 <% end %>
 <% end %>
-
-
 
 </ul>
-</center>
 
 
 <br><button type="button" class="btn btn-outline-success">確認へ</button></br>
+</center>
 
 </body>
 
