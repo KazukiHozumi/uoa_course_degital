@@ -1,24 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-Teacher.create(teacher_name: 'teacher_1')
-Teacher.create(teacher_name: 'teacher_2')
-
-Category.create(category_name: "category_1")
-Category.create(category_name: "category_2")
-
-CourseTeacher.create(course_id: 1, teacher_id: 1)
-CourseTeacher.create(course_id: 2, teacher_id: 2)
-Subcategory.create(subcategory_name: 's_name_1', category_id: 1)
-Subcategory.create(subcategory_name: 's_name_2', category_id: 2)
-
-Course.create(course_code: 'code1', course_name: 'name1', subcategory_id: 1)
-Course.create(course_code: 'code2', course_name: 'name2', subcategory_id: 2)
 
 def createCategoryDB(category)
   Category.create(category_name: category.category_name)
@@ -40,7 +19,7 @@ def createCourseDB(subcategory_id, course)
   Course.create(course_code: course.course_code, course_name: course.course_name, subcategory_id: subcategory_id)
   dummyCourse = Course.find(course_name: course.course_name)
   course.teachers.each { |teacher|
-    if Teather.find(teacher_name: teacher) == nil then
+    if Teather.find(teacher_name: teacher) == nil
       createTeacherDB(teacher)
     end
     dummyTeacher = Teacher.find(teacher_name: teacher.teacher_name)
@@ -55,3 +34,72 @@ end
 def createCourse_teacherDB(course_id, teacher_id)
   CourseTeacher.create(course_id: course_id, teacher_id: teacher_id)
 end
+
+require 'nokogiri'
+require 'open-uri'
+
+class Category2
+  def initialize(name)
+    @category_name = name
+    @subcategories = []
+  end
+  attr_accessor :category_name, :subcategories
+end
+
+class Course2
+  def initialize(code, name)
+    @course_code = code
+    @course_name = name
+    @teachers = []
+    @subcourse_id = nil
+  end
+
+  attr_accessor :course_code, :course_name, :teachers
+end
+
+class Subcategory2
+  def initialize(name, category)
+    @subcategory_name = name
+    @course_list = []
+    @category = category
+  end
+  attr_accessor :subcategory_name, :course_list
+end
+
+class DataCollectService2
+  def get_courses
+
+    syllabus_url = 'http://web-ext.u-aizu.ac.jp/official/curriculum/syllabus/1_J_000.html'
+
+    html = open(syllabus_url, &:read)
+
+    categorys = []
+
+    doc = Nokogiri::HTML.parse(html, nil, 'UTF-8')
+    doc.xpath('//div[@class="box"]').each do |box|
+      category = Category2.new(box.css('td.daikbn').inner_text.strip)
+      count = -1
+      box.xpath('./div/table').children.each do |tr|
+        table = tr.xpath('./td/table')[0]
+        next if table.nil?
+        if table.attributes['class'].value == 'chu-inner'
+          count += 1
+          category.subcategories << Subcategory2.new(table.xpath('.//td[@class="chukbn"]').text.strip, category)
+          next
+        end
+        if category.subcategories.empty?
+          count += 1
+          category.subcategories << Subcategory2.new(category.category_name, category)
+        end
+        course_code, course_name = table.xpath('.//td[@class="kamoku"]/a').text.scan(/([^ ]+) (.+$)/)[0]
+        category.subcategories[count].course_list << Course2.new(course_code, course_name)
+      end
+      categorys << category
+    end
+    categorys
+  end
+end
+
+DataCollectService2.new.get_courses.each { |category|
+  createCategoryDB(category)
+}
