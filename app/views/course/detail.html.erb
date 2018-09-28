@@ -10,23 +10,56 @@
   /*グラデーション以外は省略*/
   }
   </style>
-
-
-
-
 　<title>detail</title>
 　<meta charset="UTF-8">
 
 　</head>
+<script>
+    $(document).ready(function(){
+        const query = document.location.search.substring(1);
+        result = getParameterValues(query);
+        console.log(result[0])
+        let html = ''
+        html += '<tr class="table-light">' +
+                  `<td>${result[0]}</td>
+                   <td>${result[1]}</td>`;
+        result[2].split(',').forEach(function(val){
+            html += `<td>${val}</td>`
+        });
+        html += '</tr>';
 
-<div id="gradation">
+        $('#confirmInfo').append(html)
+    });
 
-　<body>
+    function getParameterValues(query){
+        let parameters = query.split('&');
+        let result = [];
+        for (let i = 0; i < parameters.length; i++) {
 
+            // パラメータ名とパラメータ値に分割する
+            let element = parameters[i].split('=');
+
+            let paramValue = decodeURIComponent(element[1]);
+            result[i] = paramValue
+        }
+        return result;
+    }
+</script>
+<body>
+  <div id="gradation">
 　<center>
 
 　<div>
-　<h2>確認</h2>
+　 <h2>確認</h2>
+   <table class="table table-bordered ">
+     <tbody id="confirmInfo">
+       <tr class="table-light">
+         <th scope="col">学籍番号</th>
+         <th scope="col">名前</th>
+         <th scope="col">履修取り消し希望科目</th>
+       </tr>
+     </tbody>
+   </table>
 　</div>
 
 <p class="text-danger">こちらを学生課窓口までお届けください</p>
@@ -39,8 +72,9 @@
 </center>
 
 <%= image_tag('forest2') %>
+</div>
 </body>
 
-</div>
+
 
 </html>
