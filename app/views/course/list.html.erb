@@ -42,10 +42,11 @@ background: linear-gradient(to bottom, #e9f9e3, #FFF);
 
              <div class="input-group mb-3">
               <div class="input-group-text">
-                <input type="checkbox" aria-label="Checkbox for following text input">
+                <input type="checkbox" class="checkbox" aria-label="Checkbox for following text input">
+                <input type="hidden" class="courseTeacherId" value="<%= courseteacher.id %>>">
               </div>
              <! <div class="alert alert-success" role="alert">
-              <p type="text" class="form-control" aria-label="Text input with radio button" type="hidden" value="courseteacher.courseid">
+              <p type="text" class="form-control" aria-label="Text input with radio button">
                 <% course = @course.find(courseteacher.course_id)%>
                 <% teacher = @teacher.find(courseteacher.teacher_id)%>
                  <em><%= course.course_code %></em>  |　<em><%= course.course_name %></em>   |　<em><%=teacher.teacher_name %></em>
