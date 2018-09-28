@@ -7,3 +7,5 @@
 - Ruby 2.5.1
 - Ruby on Rails 5.2.1
 - Bootstrap v4.1.3
+- sqlite3
+- jQuery
