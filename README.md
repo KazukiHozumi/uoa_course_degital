@@ -9,3 +9,5 @@
 - Bootstrap v4.1.3
 - sqlite3
 - jQuery
+- Nokogiri
+- thinreports
