@@ -22,11 +22,9 @@
         let html = ''
         html += '<tr class="table-light">' +
                   `<td>${result[0]}</td>
-                   <td>${result[1]}</td>`;
-        result[2].split(',').forEach(function(val){
-            html += `<td>${val}</td>`
-        });
-        html += '</tr>';
+                   <td>${result[1]}</td>
+                   <td>${result[2]}</td>`;
+                  </tr>`;
 
         $('#confirmInfo').append(html)
     });
