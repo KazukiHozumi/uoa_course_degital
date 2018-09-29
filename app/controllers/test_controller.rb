@@ -9,19 +9,22 @@ class TestController < ApplicationController
 
         # Thin ReportsでPDFを作成
         # 先ほどEditorで作ったtlfファイルを読み込む
-        report = Thinreports::Report.new(layout: "#{Rails.root}/app/pdfs/course.tlf")
+        #report = Thinreports::Report.new(layout: "#{Rails.root}/app/pdfs/course.tlf")
+        #report = Thinreports::Report.new
+        #report.use_layout "#{Rails.root}/app/pdfs/course.tlf"
+        report = Thinreports::Report.new layout: File.join(Rails.root, 'app', 'pdfs', 'course.tlf')
+
 
         # 1ページ目を開始
         report.start_new_page
-
-        report.page.item(:number_0)
-        report.page.item(:number_1)
-        report.page.item(:number_2)
-        report.page.item(:number_3)
-        report.page.item(:number_4)
-        report.page.item(:number_5)
-        report.page.item(:number_6)
-        report.page.item(:name)
+        report.page.item(:number_0).value(0)
+        report.page.item(:number_1).value(1)
+        report.page.item(:number_2).value(2)
+        report.page.item(:number_3).value(3)
+        report.page.item(:number_4).value(4)
+        report.page.item(:number_5).value(5)
+        report.page.item(:number_6).value(6)
+        report.page.item(:name).value("name")
 
         # ブラウザでPDFを表示する
         # disposition: "inline" によりダウンロードではなく表示させている
