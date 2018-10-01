@@ -57,7 +57,6 @@
           </table>
         </div>
         <p class="text-danger">こちらを学生課窓口までお届けください</p>
-        <%= @studentId %>
         <br><%= link_to "pdfでダウンロード",
                     pdf_path(format:"pdf", studentId: @studentId, name: @name, selectedCourses: @selectedCoueses),
                     :class => 'btn btn-outline-danger' %></button>
