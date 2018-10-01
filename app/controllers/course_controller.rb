@@ -8,6 +8,8 @@ class CourseController < ApplicationController
     @course = Course.all
     @courseteacher = CourseTeacher.all
     @subcategory = Subcategory.all
+    @studentId = params[:studentId]
+    @name = params[:name]
 
 
   end
@@ -16,6 +18,11 @@ class CourseController < ApplicationController
 
     @teacher = Teacher.all
     @course = Course.all
+
+    @name = params[:name]
+    @studentId = params[:studentId]
+    @selectedCoueses = params[:selectedCoueses]
+
   end
 
   def pdf
@@ -23,35 +30,27 @@ class CourseController < ApplicationController
       format.html # show.html.erb
       format.pdf do
 
-        # Thin ReportsでPDFを作成
-        # 先ほどEditorで作ったtlfファイルを読み込む
-        #report = Thinreports::Report.new(layout: "#{Rails.root}/app/pdfs/course.tlf")
-        #report = Thinreports::Report.new
-        #report.use_layout "#{Rails.root}/app/pdfs/course.tlf"
+        sID = params[:studentId]
+
         report = Thinreports::Report.new layout: File.join(Rails.root, 'app', 'pdfs', 'course.tlf')
 
-        studentId = params[:studentId]
-        name = params[:name]
+        numbers = [:number_0, :number_1, :number_2, :number_3, :number_4, :number_5, :number_6]
+        sidslice = sID.split(//)
 
-        # 1ページ目を開始
+        sidslice = sidslice.drop(1)
+
         report.start_new_page
-        report.page.item(:number_0).value(0)
-        report.page.item(:number_1).value(1)
-        report.page.item(:number_2).value(2)
-        report.page.item(:number_3).value(3)
-        report.page.item(:number_4).value(4)
-        report.page.item(:number_5).value(5)
-        report.page.item(:number_6).value(6)
-        report.page.item(:name).value(name)
+        numbers.zip(sidslice) do |num, siddigit|
+          report.page.item(num).value(siddigit)
+        end
 
-        # ブラウザでPDFを表示する
-        # disposition: "inline" によりダウンロードではなく表示させている
+        report.page.item(:name).value(params[:name])
+
         send_data(
          report.generate,
          filename: 'course.pdf'
        )
        end
-
     end
   end
 

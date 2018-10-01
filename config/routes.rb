@@ -4,5 +4,4 @@ Rails.application.routes.draw do
   get 'list' => 'course#list'
   get 'detail' => 'course#detail'
   get 'pdf' => 'course#pdf'
-  get 'test' => 'test#test'
 end
