@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   get 'top' => 'course#top'
   get 'list' => 'course#list'
   get 'detail' => 'course#detail'
+  get 'pdf' => 'course#pdf'
   get 'test' => 'test#test'
 end
