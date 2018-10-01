@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <style type="text/css">
+      #gradation {
+        background: -moz-linear-gradient(top, #e9f9e3, #FFF);
+        background: -webkit-linear-gradient(top, #e9f9e3, #FFF);
+        background: linear-gradient(to bottom, #e9f9e3, #FFF);
+        /*グラデーション以外は省略*/
+      }
+    </style>
 
-  <style type="text/css">
-    #gradation {
-      background: -moz-linear-gradient(top, #e9f9e3, #FFF);
-      background: -webkit-linear-gradient(top, #e9f9e3, #FFF);
-      background: linear-gradient(to bottom, #e9f9e3, #FFF);
-      /*グラデーション以外は省略*/
-    }
-  </style>
+    <%= image_tag("title.jpg" ,:size =>'1500x300') %>
 
-
-  <%= image_tag("title.jpg" ,:size =>'1500x300') %>
-
-  <title>履修削除</title>
-  <meta charset="UTF-8">
-</head>
-
-<body>
-
-<div class="row">
-
-  <div class="col-3">
-  </div>
-
-  <div class="col-9">
-    <br>
-    <br>
-    <h2>履修削除</h2>
-    　      <br><p class="text-success">学籍
-    　      <input type="text" name="number" id="studentId" maxlength="8" value="" placeholder="s1240000" required></br>
-    　      <br>名前
-    <input type="text" name="name" id="name" maxlength="8" value="" placeholder="田中　太郎" required></br></p>
-    　      <br><button type="button" id="login" class="btn btn-success">ログイン</button></br>
-
-
-  </div>
-
-</div>
-
-</body>
+    <title>履修削除</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-3">
+      </div>
+      <div class="col-9">
+        <br>
+        <br>
+        <h2>履修削除</h2>
+        <br>
+        <p>
+          学籍　<input type="text" name="number" id="studentId" maxlength="8" value="" placeholder="s1240000" required>
+          <br>
+        </p>
+        <p>
+          名前　<input type="text" name="name" id="name" maxlength="8" value="" placeholder="田中　太郎" required>
+        </p>
+        <br>
+        <button type="button" id="login" class="btn btn-success">ログイン</button>
+      </div>
+    </div>
+  </body>
 </html>
