@@ -1,81 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-
-<style type="text/css">
-
-#gradation {
-background: -moz-linear-gradient(top, #e9f9e3, #FFF);
-background: -webkit-linear-gradient(top, #e9f9e3, #FFF);
-background: linear-gradient(to bottom, #e9f9e3, #FFF);
-/*グラデーション以外は省略*/
-}
-
-
-
-
-</style>
-
-　<title>リスト</title>
-　<meta charset="UTF-8">
-
-</head>
-
-<body>
-  <div id="gradation">
-
-
-<div>
-<h2>履修中の科目</h2>
-</div>
-
-
-
-<p>この中から、取り消す科目にチェックを入れてください</p>
-
-<ul class="list-group">
-
-
-<% @courseteacher.each do |courseteacher| %>
-
-
-             <div class="input-group mb-3">
-              <div class="input-group-text">
-                <input type="checkbox" class="checkbox" aria-label="Checkbox for following text input">
-                <input type="hidden" class="courseTeacherId" value="<%= courseteacher.id %>>">
-              </div>
-             <! <div class="alert alert-success" role="alert">
-              <p type="text" class="form-control" aria-label="Text input with radio button">
-                <% course = @course.find(courseteacher.course_id)%>
-                <% teacher = @teacher.find(courseteacher.teacher_id)%>
-                 <em><%= course.course_code %></em>  |　<em><%= course.course_name %></em>   |　<em><%=teacher.teacher_name %></em>
-             </div>
-              </p>
-              <% end %>
-
-            </div>
-
-
-
-
-
-
-
-
-
-</ul>
-<br><button type="button" id="confirm" class="btn btn-outline-success">確認へ</button></br>
-</center>
-
-<%= image_tag('forest1') %>
-  </div>
-  <div class="modal" style="display:none;">
-
-  </div>
-</body>
-
-
-
-
+  <head>
+    <style type="text/css">
+    #gradation {
+      background: -moz-linear-gradient(top, #e9f9e3, #FFF);
+      background: -webkit-linear-gradient(top, #e9f9e3, #FFF);
+      background: linear-gradient(to bottom, #e9f9e3, #FFF);
+      /*グラデーション以外は省略*/
+    }
+    </style>
+    <title>リスト</title>
+  　<meta charset="UTF-8">
+  </head>
+  <body>
+    <div id="gradation">
+      <div>
+        <h2>履修中の科目</h2>
+      </div>
+      <p>この中から、取り消す科目にチェックを入れてください</p>
+      <ul class="list-group">
+        <% @courseteacher.each do |courseteacher| %>
+        <div class="input-group mb-3">
+          <div class="input-group-text">
+            <input type="checkbox" class="checkbox" aria-label="Checkbox for following text input">
+            <input type="hidden" class="courseTeacherId" value="<%= courseteacher.id %>>">
+          </div>
+          <p type="text" class="form-control" aria-label="Text input with radio button">
+            <% course = @course.find(courseteacher.course_id)%>
+            <% teacher = @teacher.find(courseteacher.teacher_id)%>
+            <em><%= course.course_code %></em>  |　<em><%= course.course_name %></em>   |　<em><%=teacher.teacher_name %></em>
+          </p>
+        </div>
+        <% end %>
+      </div>
+    </ul>
+    <br><button type="button" id="confirm" class="btn btn-outline-success">確認へ</button>
+    <%= image_tag('forest1') %>
+    <div class="modal" style="display:none;">
+    </div>
+  </body>
 </html>
