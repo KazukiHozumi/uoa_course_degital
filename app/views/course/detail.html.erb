@@ -1,78 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <style type="text/css">
-  #gradation {
-  background: -moz-linear-gradient(top, #f4dcb5, #FFF);
-  background: -webkit-linear-gradient(top, #f4dcb5, #FFF);
-  background: linear-gradient(to bottom, #f4dcb5, #FFF);
-  /*グラデーション以外は省略*/
-  }
-  </style>
-　<title>detail</title>
-　<meta charset="UTF-8">
-
-　</head>
-<script>
-    $(document).ready(function(){
-        const query = document.location.search.substring(1);
-        result = getParameterValues(query);
-        console.log(result[0])
-        let html = ''
-        html += '<tr class="table-light">' +
-                  `<td>${result[0]}</td>
-                   <td>${result[1]}</td>
-                   <td>${result[2]}</td>
-                </tr>`;
-
-        $('#confirmInfo').append(html)
-    });
-
-    function getParameterValues(query){
-        let parameters = query.split('&');
-        let result = [];
-        for (let i = 0; i < parameters.length; i++) {
-
-            // パラメータ名とパラメータ値に分割する
-            let element = parameters[i].split('=');
-
-            let paramValue = decodeURIComponent(element[1]);
-            result[i] = paramValue
-        }
-        return result;
+  <head>
+    <style type="text/css">
+    #gradation {
+      background: -moz-linear-gradient(top, #f4dcb5, #FFF);
+      background: -webkit-linear-gradient(top, #f4dcb5, #FFF);
+      background: linear-gradient(to bottom, #f4dcb5, #FFF);
+      /*グラデーション以外は省略*/
     }
-</script>
-<body>
-  <div id="gradation">
-　<center>
+    </style>
+    <title>detail</title>
+    <meta charset="UTF-8">
+  </head>
+  <script>
+      $(document).ready(function(){
+          const query = document.location.search.substring(1);
+          result = getParameterValues(query);
+          console.log(result[0], result[1], result[2])
+          let html = ''
+          html += '<tr class="table-light">' +
+                    `<td>${result[0]}</td>
+                     <td>${result[1]}</td>
+                     <td>${result[2]}</td>
+                  </tr>`;
 
-　<div>
-　 <h2>確認</h2>
-   <table class="table table-bordered ">
-     <tbody id="confirmInfo">
-       <tr class="table-light">
-         <th scope="col">学籍番号</th>
-         <th scope="col">名前</th>
-         <th scope="col">履修取り消し希望科目</th>
-       </tr>
-     </tbody>
-   </table>
-　</div>
+          $('#confirmInfo').append(html)
+      });
 
-<p class="text-danger">こちらを学生課窓口までお届けください</p>
+      function getParameterValues(query){
+          let parameters = query.split('&');
+          let result = [];
+          for (let i = 0; i < parameters.length; i++) {
 
+              // パラメータ名とパラメータ値に分割する
+              let element = parameters[i].split('=');
 
-<br><%= link_to "pdfでダウンロード",
-                  test_path("test",format:"pdf"),
-                  :class => 'btn btn-outline-danger' %></button></br>
-
-</center>
-
-<%= image_tag('forest2') %>
-</div>
-</body>
-
-
-
+              let paramValue = decodeURIComponent(element[1]);
+              result[i] = paramValue
+          }
+          return result;
+      }
+  </script>
+  <body>
+    <div id="gradation">
+      <center>
+        <div>
+          <h2>確認</h2>
+          <table class="table table-bordered ">
+            <tbody id="confirmInfo">
+              <tr class="table-light">
+                <th scope="col">学籍番号</th>
+                <th scope="col">名前</th>
+                <th scope="col">履修取り消し希望科目</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-danger">こちらを学生課窓口までお届けください</p>
+        <br><%= link_to "pdfでダウンロード",
+                    pdf_path(format:"pdf", studentId: @studentId, name: @name, selectedCourses: @selectedCoueses),
+                    :class => 'btn btn-outline-danger' %></button>
+      </center>
+      <%= image_tag('forest2') %>
+    </div>
+  </body>
 </html>

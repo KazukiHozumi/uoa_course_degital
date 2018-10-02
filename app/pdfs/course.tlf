@@ -7,7 +7,7 @@
       "display": true,
       "description": "",
       "x": 0,
-      "y": 0,
+      "y": 1,
       "width": 595.2,
       "height": 839.3,
       "data": {
@@ -16,14 +16,14 @@
       }
     },
     {
-      "id": "number_0",
+      "id": "test2",
       "type": "text",
       "display": true,
       "description": "",
-      "x": 366.6,
-      "y": 106,
-      "width": 24,
-      "height": 22,
+      "x": 20,
+      "y": 113,
+      "width": 117.1,
+      "height": 41,
       "style": {
         "font-family": [
           "IPAMincho"
@@ -40,16 +40,48 @@
       "texts": [
         ""
       ]
+    },
+    {
+      "id": "number_0",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 375.1,
+      "y": 109,
+      "width": 11,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
     },
     {
       "id": "number_1",
-      "type": "text",
+      "type": "text-block",
       "display": true,
       "description": "",
-      "x": 392.6,
-      "y": 107,
-      "width": 24,
-      "height": 22,
+      "x": 401.1,
+      "y": 109,
+      "width": 11,
+      "height": 20,
       "style": {
         "font-family": [
           "IPAMincho"
@@ -61,47 +93,27 @@
         "line-height": "",
         "line-height-ratio": "",
         "letter-spacing": "",
-        "font-style": []
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
       },
-      "texts": [
-        ""
-      ]
-    },
-    {
-      "id": "number_3",
-      "type": "text",
-      "display": true,
-      "description": "",
-      "x": 443.6,
-      "y": 107,
-      "width": 24,
-      "height": 22,
-      "style": {
-        "font-family": [
-          "IPAMincho"
-        ],
-        "font-size": 18,
-        "color": "#000000",
-        "text-align": "left",
-        "vertical-align": "top",
-        "line-height": "",
-        "line-height-ratio": "",
-        "letter-spacing": "",
-        "font-style": []
-      },
-      "texts": [
-        ""
-      ]
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
     },
     {
       "id": "number_2",
-      "type": "text",
+      "type": "text-block",
       "display": true,
       "description": "",
-      "x": 418.6,
-      "y": 107,
-      "width": 24,
-      "height": 22,
+      "x": 427.1,
+      "y": 109,
+      "width": 10,
+      "height": 20,
       "style": {
         "font-family": [
           "IPAMincho"
@@ -113,21 +125,59 @@
         "line-height": "",
         "line-height-ratio": "",
         "letter-spacing": "",
-        "font-style": []
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
       },
-      "texts": [
-        ""
-      ]
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "number_3",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 452.1,
+      "y": 109,
+      "width": 12,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
     },
     {
       "id": "number_4",
-      "type": "text",
+      "type": "text-block",
       "display": true,
       "description": "",
-      "x": 468.6,
+      "x": 479.1,
       "y": 109,
-      "width": 24,
-      "height": 22,
+      "width": 12,
+      "height": 20,
       "style": {
         "font-family": [
           "IPAMincho"
@@ -139,21 +189,27 @@
         "line-height": "",
         "line-height-ratio": "",
         "letter-spacing": "",
-        "font-style": []
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
       },
-      "texts": [
-        ""
-      ]
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
     },
     {
       "id": "number_5",
-      "type": "text",
+      "type": "text-block",
       "display": true,
       "description": "",
-      "x": 494.6,
-      "y": 107,
-      "width": 24,
-      "height": 22,
+      "x": 504.1,
+      "y": 109,
+      "width": 11,
+      "height": 20,
       "style": {
         "font-family": [
           "IPAMincho"
@@ -165,21 +221,91 @@
         "line-height": "",
         "line-height-ratio": "",
         "letter-spacing": "",
-        "font-style": []
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
       },
-      "texts": [
-        ""
-      ]
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
     },
     {
       "id": "number_6",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 528.1,
+      "y": 109,
+      "width": 12,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "name",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 386.1,
+      "y": 134,
+      "width": 110,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "",
       "type": "text",
       "display": true,
       "description": "",
-      "x": 521.6,
-      "y": 107,
-      "width": 24,
-      "height": 22,
+      "x": 32.1,
+      "y": 213,
+      "width": 68,
+      "height": 44,
       "style": {
         "font-family": [
           "IPAMincho"
@@ -198,14 +324,14 @@
       ]
     },
     {
-      "id": "name",
-      "type": "text",
+      "id": "code_0",
+      "type": "text-block",
       "display": true,
       "description": "",
-      "x": 344.6,
-      "y": 133,
-      "width": 193,
-      "height": 20.5,
+      "x": 85.1,
+      "y": 219,
+      "width": 31,
+      "height": 20,
       "style": {
         "font-family": [
           "IPAMincho"
@@ -217,11 +343,369 @@
         "line-height": "",
         "line-height-ratio": "",
         "letter-spacing": "",
-        "font-style": []
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
       },
-      "texts": [
-        ""
-      ]
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "course_name_0",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 157.1,
+      "y": 218,
+      "width": 109,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "instructor_0",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 302.1,
+      "y": 217,
+      "width": 74,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "reason_0",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 412.1,
+      "y": 218,
+      "width": 114,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "code_1",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 85.1,
+      "y": 236,
+      "width": 30,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "course_name_1",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 157.1,
+      "y": 236,
+      "width": 108,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "instructor_1",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 303.1,
+      "y": 236,
+      "width": 73,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "reason_1",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 413.1,
+      "y": 236,
+      "width": 110,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "code_2",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 86.1,
+      "y": 255,
+      "width": 31,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "course_name_2",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 159.1,
+      "y": 256,
+      "width": 105,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "instructor_2",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 304.1,
+      "y": 255,
+      "width": 72,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "reason_2",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 413.1,
+      "y": 255,
+      "width": 114,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "IPAMincho"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
     }
   ],
   "state": {
