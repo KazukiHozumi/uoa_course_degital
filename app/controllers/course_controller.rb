@@ -47,7 +47,7 @@ class CourseController < ApplicationController
 
 
         report.start_new_page
-        form_studentId.zip(studentId_split_drop) do |form, id|
+        studentId_split_drop.zip(form_studentId) do |id, form|
           report.page.item(form).value(id)
         end
         report.page.item(:name).value(name)
