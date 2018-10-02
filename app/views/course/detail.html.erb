@@ -15,13 +15,12 @@
   <script>
       $(document).ready(function(){
           const query = document.location.search.substring(1);
-          result = getParameterValues(query);
-          console.log(result[0], result[1], result[2])
+          let result = getParameterValues(query);
           let html = ''
-          html += '<tr class="table-light">' +
-                    `<td>${result[0]}</td>
-                     <td>${result[1]}</td>
-                     <td>${result[2]}</td>
+          html += `<tr class="table-light">
+                    <td>${result[0]}</td>
+                    <td>${result[1]}</td>
+                    <td>${result[2]}</td>
                   </tr>`;
 
           $('#confirmInfo').append(html)
@@ -39,6 +38,10 @@
               result[i] = paramValue
           }
           return result;
+      }
+
+      function findCourseNames(courseTeacherIds){
+          <%  %>
       }
   </script>
   <body>
@@ -58,7 +61,7 @@
         </div>
         <p class="text-danger">こちらを学生課窓口までお届けください</p>
         <br><%= link_to "pdfでダウンロード",
-                    pdf_path(format:"pdf", studentId: @studentId, name: @name, selectedCourses: @selectedCoueses),
+                    pdf_path(format:"pdf", studentId: @student_id, name: @name, selectedCourses: @selected_courses),
                     :class => 'btn btn-outline-danger' %></button>
       </center>
       <%= image_tag('forest2') %>

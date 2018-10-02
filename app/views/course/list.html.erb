@@ -20,24 +20,23 @@
       </div>
       <p>この中から、取り消す科目にチェックを入れてください</p>
       <ul class="list-group">
-        <% @courseteacher.each do |courseteacher| %>
+        <% @course_teacher.each do |course_teacher| %>
         <div class="input-group mb-3">
           <div class="input-group-text">
             <input type="checkbox" class="checkbox" aria-label="Checkbox for following text input">
-            <input type="hidden" class="courseTeacherId" value="<%= courseteacher.id %>>">
+            <input type="hidden" class="courseTeacherId" value="<%= course_teacher.id %>>">
           </div>
           <p type="text" class="form-control" aria-label="Text input with radio button">
-            <% course = @course.find(courseteacher.course_id)%>
-            <% teacher = @teacher.find(courseteacher.teacher_id)%>
+            <% course = @course.find(course_teacher.course_id)%>
+            <% teacher = @teacher.find(course_teacher.teacher_id)%>
             <em><%= course.course_code %></em>  |　<em><%= course.course_name %></em>   |　<em><%=teacher.teacher_name %></em>
           </p>
         </div>
         <% end %>
-      </div>
-    </ul>
-    <br><button type="button" id="confirm" class="btn btn-outline-success">確認へ</button>
-    <%= image_tag('forest1') %>
-    <div class="modal" style="display:none;">
+      </ul>
+      <br>
+      <button type="button" id="confirm" class="btn btn-outline-success">確認へ</button>
     </div>
+    <%= image_tag('forest1') %>
   </body>
 </html>

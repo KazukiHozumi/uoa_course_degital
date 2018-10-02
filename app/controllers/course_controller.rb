@@ -6,22 +6,23 @@ class CourseController < ApplicationController
 
     @teacher = Teacher.all
     @course = Course.all
-    @courseteacher = CourseTeacher.all
+    @course_teacher = CourseTeacher.all
     @subcategory = Subcategory.all
-    @studentId = params[:studentId]
+    @student_id = params[:studentId]
     @name = params[:name]
 
 
   end
 
+  # パラメータ付きで実装する(中間テーブルID。できればPOSTがいい)
   def detail
 
     @teacher = Teacher.all
     @course = Course.all
 
     @name = params[:name]
-    @studentId = params[:studentId]
-    @selectedCoueses = params[:selectedCoueses]
+    @student_id = params[:studentId]
+    @selected_courses = params[:selectedCoueses]
 
   end
 
