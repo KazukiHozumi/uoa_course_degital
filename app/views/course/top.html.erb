@@ -22,15 +22,12 @@
         <br>
         <h2>履修削除</h2>
         <br>
-        <p>
-          学籍　<input type="text" name="number" id="studentId" maxlength="8" value="" placeholder="s1240000" required>
-          <br>
-        </p>
-        <p>
-          名前　<input type="text" name="name" id="name" maxlength="8" value="" placeholder="田中　太郎" required>
-        </p>
-        <br>
-        <button type="button" id="login" class="btn btn-success">ログイン</button>
+          <%= form_tag '/list' do %>
+            学籍<%= text_field_tag :studentId %>
+            名前<%= text_field_tag :name %>
+            単位取得状況<%= text_area_tag :course_info %>
+            <%= submit_tag "ログイン", :class => 'btn btn-success' %>
+          <% end %>
       </div>
     </div>
   </body>

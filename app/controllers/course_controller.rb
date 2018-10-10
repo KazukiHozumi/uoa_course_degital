@@ -22,7 +22,7 @@ class CourseController < ApplicationController
 
     @name = params[:name]
     @student_id = params[:studentId]
-    @selected_courses = params[:selectedCoueses]
+    @selected_courses = params[:selectedCourses]
 
   end
 
@@ -31,32 +31,33 @@ class CourseController < ApplicationController
       format.html # show.html.erb
       format.pdf do
 
-        sID = params[:studentId]
+        student_id = params[:studentId]
+        name = params[:name]
+        selected_courses = params[:selectedCourses]
+
+        student_id_split = student_id.split(//)
+        student_id_split_drop = student_id_split.drop(1)
+        selected_courses_list = selected_courses.split(",")
+        form_student_id = [:number_0, :number_1, :number_2, :number_3, :number_4, :number_5, :number_6]
+        form_courses = [[:code_0, :course_name_0, :instructor_0, :reason_0],
+                        [:code_1, :course_name_1, :instructor_1, :reason_1],
+                        [:code_2, :course_name_2, :instructor_2, :reason_2]]
+
 
         report = Thinreports::Report.new layout: File.join(Rails.root, 'app', 'pdfs', 'course.tlf')
 
-        numbers = [:number_0, :number_1, :number_2, :number_3, :number_4, :number_5, :number_6]
-        sidslice = sID.split(//)
-        sidslice = sidslice.drop(1)
 
         report.start_new_page
-        numbers.zip(sidslice) do |num, siddigit|
-          report.page.item(num).value(siddigit)
+        student_id_split_drop.zip(form_student_id) do |id, form|
+          report.page.item(form).value(id)
         end
-        report.page.item(:name).value(params[:name])
-        report.page.item(:code_0).value(3)
-        report.page.item(:course_name_0).value('English')
-        report.page.item(:instructor_0).value('hoge')
-        report.page.item(:reason_0).value('眠い')
-        report.page.item(:code_1).value(33)
-        report.page.item(:course_name_1).value('math')
-        report.page.item(:instructor_1).value('fuga')
-        report.page.item(:reason_1).value('疲れた')
-        report.page.item(:code_2).value(333)
-        report.page.item(:course_name_2).value('programming')
-        report.page.item(:instructor_2).value('guga')
-        report.page.item(:reason_2).value('お酒飲みたい')
-        
+        report.page.item(:name).value(name)
+        selected_courses_list.zip(form_courses) do |course, form|
+          report.page.item(form[0]).value(course)
+          report.page.item(form[1]).value('English')
+          report.page.item(form[2]).value('hoge')
+          report.page.item(form[3]).value('眠い')
+        end
 
         send_data(
          report.generate,

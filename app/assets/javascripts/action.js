@@ -1,12 +1,6 @@
 $(function() {
     selectedCoueses = []
 
-    $('#login').on('click', function () {
-        let studentId = $('#studentId').val();
-        let name = $('#name').val();
-
-        window.location.href=`list?studentId=${studentId}&name=${name}`
-    });
     $('#confirm').on('click', function(){
         const query = document.location.search.substring(1);
 
