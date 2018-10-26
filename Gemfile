@@ -68,3 +68,6 @@ gem 'nokogiri'
 
 # For PDF Generation
 gem "thinreports"
+
+# For Basic Auth
+gem 'mechanize'

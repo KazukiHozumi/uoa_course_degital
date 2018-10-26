@@ -4,17 +4,15 @@ class CourseController < ApplicationController
   
   def list
 
-    @teacher = Teacher.all
-    @course = Course.all
-    @course_teacher = CourseTeacher.all
-    @subcategory = Subcategory.all
     @student_id = params[:studentId]
     @name = params[:name]
-
+    @score_file = params[:score_file]
+    @course_list = Category.joins(subcategories: [courses: :teachers])
+    score_file = ScoreFileProcess.new
+    @course_list = score_file.process_score_csv_file(@score_file)
 
   end
 
-  # パラメータ付きで実装する(中間テーブルID。できればPOSTがいい)
   def detail
 
     @teacher = Teacher.all

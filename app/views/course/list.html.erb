@@ -20,16 +20,26 @@
       </div>
       <p>この中から、取り消す科目にチェックを入れてください</p>
       <ul class="list-group">
-        <% @course_teacher.each do |course_teacher| %>
+        <%# @course_teacher.each do |course_teacher| %>
+<!--        <div class="input-group mb-3">-->
+<!--          <div class="input-group-text">-->
+<!--            <input type="checkbox" class="checkbox" aria-label="Checkbox for following text input">-->
+<!--            <input type="hidden" class="courseTeacherId" value="<%#= course_teacher.id %>>">-->
+<!--          </div>-->
+<!--          <p type="text" class="form-control" aria-label="Text input with radio button">-->
+            <%# course = @course.find(course_teacher.course_id)%>
+            <%# teacher = @teacher.find(course_teacher.teacher_id)%>
+<!--            <em><%#= course.course_code %></em>  |　<em><%#= course.course_name %></em>   |　<em><%#=teacher.teacher_name %></em>-->
+<!--          </p>-->
+<!--        </div>-->
+        <%# end %>
+        <% @course_list.each do |course| %>
         <div class="input-group mb-3">
           <div class="input-group-text">
             <input type="checkbox" class="checkbox" aria-label="Checkbox for following text input">
-            <input type="hidden" class="courseTeacherId" value="<%= course_teacher.id %>>">
           </div>
           <p type="text" class="form-control" aria-label="Text input with radio button">
-            <% course = @course.find(course_teacher.course_id)%>
-            <% teacher = @teacher.find(course_teacher.teacher_id)%>
-            <em><%= course.course_code %></em>  |　<em><%= course.course_name %></em>   |　<em><%=teacher.teacher_name %></em>
+            <em><%= course.subcategories[0].courses[0].teachers%></em>
           </p>
         </div>
         <% end %>
