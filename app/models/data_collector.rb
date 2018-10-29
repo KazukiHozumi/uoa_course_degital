@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'mechanize'
 
 require_relative '' '../../lib/category_dto'
 require_relative '' '../../lib/course_dto'

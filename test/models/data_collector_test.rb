@@ -1,0 +1,2 @@
+class DataCollectorTest
+end

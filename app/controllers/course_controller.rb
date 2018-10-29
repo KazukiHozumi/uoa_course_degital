@@ -3,18 +3,20 @@ class CourseController < ApplicationController
   end
   
   def list
-
-    @teacher = Teacher.all
-    @course = Course.all
-    @course_teacher = CourseTeacher.all
-    @subcategory = Subcategory.all
     @student_id = params[:studentId]
     @name = params[:name]
-
-
+    @score_file = params[:score_file]
+    score_file = ScoreFileProcess.new
+    categories = score_file.find_taking_courses @score_file
+    @course_list = []
+    categories.each do |category|
+      category.subcategories.each do |subcategory|
+        @course_list << subcategory.courses
+      end
+      @course_list.flatten!
+    end
   end
 
-  # パラメータ付きで実装する(中間テーブルID。できればPOSTがいい)
   def detail
 
     @teacher = Teacher.all
