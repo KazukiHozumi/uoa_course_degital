@@ -3,14 +3,18 @@ class CourseController < ApplicationController
   end
   
   def list
-
     @student_id = params[:studentId]
     @name = params[:name]
     @score_file = params[:score_file]
-    @course_list = Category.joins(subcategories: [courses: :teachers])
     score_file = ScoreFileProcess.new
-    @course_list = score_file.process_score_csv_file(@score_file)
-
+    categories = score_file.find_taking_courses @score_file
+    @course_list = []
+    categories.each do |category|
+      category.subcategories.each do |subcategory|
+        @course_list << subcategory.courses
+      end
+      @course_list.flatten!
+    end
   end
 
   def detail
